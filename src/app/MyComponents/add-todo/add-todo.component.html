@@ -1,0 +1,19 @@
+<div class="my-4 border border-danger rounded container-fluid ">
+<h3>Add a Wish</h3>
+
+
+
+  <form (ngSubmit)="onSubmit()">
+  <div class="form-group my-3">
+    <label for="title"> PLACE YOU WANT TO VISIT </label>
+    <input type="text" [(ngModel)] = "title" class="form-control" name="title" id="title"  placeholder="Enter the place">
+    </div>
+
+    <div class="form-group">
+    <label for="desc">ADD A DESCRIPTION TOO</label>
+    <input type="text" [(ngModel)] = "desc" class="form-control" name="desc"  id="desc" placeholder="Enter the details">
+  </div>
+
+  <button type="submit" class="btn btn-warning my-3">Add Place</button>
+</form>
+</div>
