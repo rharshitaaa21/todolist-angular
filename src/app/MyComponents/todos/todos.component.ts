@@ -19,27 +19,7 @@ export class TodosComponent {
       this.todos = JSON.parse(this.localItem );
     }
     this.todos = [];
-this.todos.push(
-  // {
-  //     sno:  1,
-  //     title: "Vrindavan",
-  //     desc: "Divine beauty",
-  //     active: true
-  //   },
-  //   {
-  //     sno:  2,
-  //     title: "Rishikesh",
-  //     desc: "nature's aroma",
-  //     active: true
-  //   }
-  //   ,
-  //   {
-  //     sno:  3,
-  //     title: "Ayodhya",
-  //     desc: "Power of Truth",
-  //     active: true
-  //   })
-)
+// this.todos.push()
   }
   deleteTodo(todo:Todo){
     console.log(todo);
@@ -52,5 +32,4 @@ this.todos.push(
     this.todos.push(todo);
     localStorage.setItem("todos", JSON.stringify(this.todos));
   }
-
 }
