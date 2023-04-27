@@ -7,38 +7,50 @@ import {Todo} from "../../Todo"
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent {
+  localItem: string |null;
 
   todos: Todo[];
   constructor() {
-    this.todos = [];
-this.todos.push( {
-      sno:  1,
-      title: "Vrindavan",
-      desc: "Divine beauty",
-      active: true
-    },
-    {
-      sno:  2,
-      title: "Rishikesh",
-      desc: "nature's aroma",
-      active: true
+   this.localItem = localStorage.getItem("todos");
+    if(this.localItem == null){
+      // this.todos=[];
     }
-    ,
-    {
-      sno:  3,
-      title: "Ayodhya",
-      desc: "Power of Truth",
-      active: true
-    })
+    else{
+      this.todos = JSON.parse(this.localItem );
+    }
+    this.todos = [];
+this.todos.push(
+  // {
+  //     sno:  1,
+  //     title: "Vrindavan",
+  //     desc: "Divine beauty",
+  //     active: true
+  //   },
+  //   {
+  //     sno:  2,
+  //     title: "Rishikesh",
+  //     desc: "nature's aroma",
+  //     active: true
+  //   }
+  //   ,
+  //   {
+  //     sno:  3,
+  //     title: "Ayodhya",
+  //     desc: "Power of Truth",
+  //     active: true
+  //   })
+)
   }
   deleteTodo(todo:Todo){
     console.log(todo);
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
   addTodo(todo:Todo){
     console.log(todo);
     this.todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
 }
